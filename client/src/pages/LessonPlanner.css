@@ -1,0 +1,261 @@
+/* =========================
+   PAGE
+========================= */
+
+.lesson-planner-page {
+  min-height: 100vh;
+  padding: 35px 40px;
+  background: #f5f7ff;
+  font-family: Arial, sans-serif;
+  color: #172033;
+}
+
+.lesson-planner-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.planner-header {
+  background: white;
+  padding: 30px 32px;
+  border-radius: 18px;
+  border: 1px solid #e7e9f2;
+  box-shadow: 0 5px 20px rgba(31, 41, 55, 0.04);
+  margin-bottom: 20px;
+}
+
+.planner-label {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #6347f5;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.planner-header h1 {
+  margin: 0 0 8px;
+  color: #172033;
+  font-size: 30px;
+  line-height: 1.3;
+}
+
+.planner-header p {
+  margin: 0;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   LESSON INFO
+========================= */
+
+.lesson-info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.info-item {
+  padding: 18px;
+  background: white;
+  border: 1px solid #e7e9f2;
+  border-radius: 14px;
+  box-shadow: 0 5px 20px rgba(31, 41, 55, 0.04);
+}
+
+.info-item span {
+  display: block;
+  margin-bottom: 7px;
+  color: #667085;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.info-item strong {
+  color: #172033;
+  font-size: 15px;
+}
+
+
+/* =========================
+   PLAN SECTION
+========================= */
+
+.plan-section {
+  background: white;
+  padding: 28px;
+  border-radius: 18px;
+  border: 1px solid #e7e9f2;
+  box-shadow: 0 5px 20px rgba(31, 41, 55, 0.04);
+}
+
+.plan-section h2 {
+  margin: 0 0 20px;
+  color: #172033;
+  font-size: 20px;
+}
+
+
+/* =========================
+   LESSON LIST
+========================= */
+
+.lesson-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.lesson-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 18px;
+  background: #fafbff;
+  border: 1px solid #e7e9f2;
+  border-radius: 14px;
+  transition: 0.2s;
+}
+
+.lesson-step:hover {
+  border-color: #cfc6ff;
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   STEP NUMBER
+========================= */
+
+.step-number {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #ede9ff;
+  color: #6347f5;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* =========================
+   STEP CONTENT
+========================= */
+
+.step-content {
+  flex: 1;
+}
+
+.step-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.step-title-row h3 {
+  margin: 0;
+  color: #172033;
+  font-size: 16px;
+}
+
+.step-title-row span {
+  flex-shrink: 0;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #eeeaff;
+  color: #6845f5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.step-content p {
+  margin: 8px 0 0;
+  color: #667085;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   START TEACHING BUTTON
+========================= */
+
+.start-teaching-button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #6347f5;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.start-teaching-button:hover {
+  background: #5639e8;
+  transform: translateY(-1px);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+  .lesson-planner-page {
+    padding: 25px 20px;
+  }
+
+  .lesson-info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .lesson-planner-page {
+    padding: 15px;
+  }
+
+  .planner-header,
+  .plan-section {
+    padding: 20px;
+  }
+
+  .planner-header h1 {
+    font-size: 25px;
+  }
+
+  .lesson-info {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-step {
+    padding: 15px;
+  }
+
+  .step-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .step-title-row span {
+    margin-top: 2px;
+  }
+}

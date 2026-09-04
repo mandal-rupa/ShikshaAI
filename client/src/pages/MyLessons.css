@@ -1,0 +1,149 @@
+.my-lessons-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f7f8fc;
+  font-family: Arial, sans-serif;
+  color: #172033;
+}
+
+.my-lessons-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.my-lessons-header {
+  margin-bottom: 30px;
+}
+
+.my-lessons-header span {
+  color: #6846f5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.my-lessons-header h1 {
+  margin: 8px 0;
+  font-size: 32px;
+}
+
+.my-lessons-header p {
+  color: #667085;
+  margin: 0;
+}
+
+.lessons-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.lesson-card {
+  background: white;
+  padding: 25px;
+  border-radius: 18px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.06);
+  transition: 0.2s ease;
+}
+
+.lesson-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(70, 50, 180, 0.12);
+}
+
+.lesson-card-top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lesson-status {
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: #f0edff;
+  color: #6846f5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lesson-card h2 {
+  margin: 18px 0 8px;
+  font-size: 20px;
+}
+
+.lesson-card > p {
+  color: #667085;
+  margin: 0 0 22px;
+}
+
+.lesson-progress {
+  margin-bottom: 22px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.progress-info span {
+  color: #667085;
+}
+
+.progress-track {
+  width: 100%;
+  height: 8px;
+  background: #e9eaf0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #6846f5;
+  border-radius: 10px;
+}
+
+.open-lesson-button,
+.new-lesson-button {
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.open-lesson-button {
+  width: 100%;
+  background: #6846f5;
+  color: white;
+}
+
+.open-lesson-button:hover {
+  background: #5536d8;
+}
+
+.new-lesson-button {
+  margin-top: 25px;
+  background: #172033;
+  color: white;
+}
+
+.new-lesson-button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 700px) {
+  .my-lessons-page {
+    padding: 25px 15px;
+  }
+
+  .lessons-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .my-lessons-header h1 {
+    font-size: 27px;
+  }
+}

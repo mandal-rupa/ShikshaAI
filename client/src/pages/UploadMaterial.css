@@ -1,0 +1,204 @@
+/* =========================
+   PAGE
+========================= */
+
+.upload-material-page {
+  min-height: 100vh;
+  padding: 30px 40px;
+  background: #f5f7ff;
+  font-family: Arial, sans-serif;
+  color: #172033;
+}
+
+.upload-material-container {
+  max-width: 850px;
+  margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.upload-material-header {
+  background: white;
+  padding: 30px 32px;
+  border-radius: 18px;
+  border: 1px solid #e7e9f2;
+  box-shadow: 0 5px 20px rgba(31, 41, 55, 0.04);
+  margin-bottom: 20px;
+}
+
+.upload-material-header span {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: #6347f5;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.upload-material-header h1 {
+  margin: 0 0 8px;
+  color: #172033;
+  font-size: 30px;
+}
+
+.upload-material-header p {
+  margin: 0;
+  color: #667085;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.upload-material-form {
+  background: white;
+  padding: 30px 32px;
+  border-radius: 18px;
+  border: 1px solid #e7e9f2;
+  box-shadow: 0 5px 20px rgba(31, 41, 55, 0.04);
+}
+
+.upload-form-group {
+  margin-bottom: 22px;
+}
+
+.upload-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #172033;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   TEXT INPUT
+========================= */
+
+.upload-form-group input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 13px 15px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px;
+  background: white;
+  color: #172033;
+  font-size: 14px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.upload-form-group input[type="text"]::placeholder {
+  color: #98a2b3;
+}
+
+.upload-form-group input[type="text"]:focus {
+  border-color: #6347f5;
+  box-shadow: 0 0 0 3px rgba(99, 71, 245, 0.1);
+}
+
+
+/* =========================
+   FILE INPUT
+========================= */
+
+.upload-form-group input[type="file"] {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px;
+  border: 2px dashed #cfc6ff;
+  border-radius: 12px;
+  background: #faf9ff;
+  color: #475467;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.upload-form-group input[type="file"]:hover {
+  border-color: #6347f5;
+  background: #f7f5ff;
+}
+
+
+/* =========================
+   SELECTED FILE
+========================= */
+
+.selected-file {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 9px;
+  background: #eeeaff;
+  color: #6347f5;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.upload-material-button {
+  width: 100%;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 10px;
+  background: #6347f5;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.upload-material-button:hover {
+  background: #5639e8;
+  transform: translateY(-1px);
+}
+
+.upload-material-button:disabled {
+  background: #aaa0e8;
+  cursor: not-allowed;
+  transform: none;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+  .upload-material-page {
+    padding: 25px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .upload-material-page {
+    padding: 15px;
+  }
+
+  .upload-material-header,
+  .upload-material-form {
+    padding: 20px;
+  }
+
+  .upload-material-header h1 {
+    font-size: 25px;
+  }
+
+  .upload-material-header p {
+    font-size: 14px;
+  }
+
+  .upload-form-group input[type="file"] {
+    font-size: 12px;
+  }
+}
