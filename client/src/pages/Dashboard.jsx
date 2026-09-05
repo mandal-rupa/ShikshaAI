@@ -37,6 +37,13 @@ import "./Dashboard.css";
 
 function Dashboard() {
   const [latestResult, setLatestResult] = useState(null);
+  const [profileClass, setProfileClass] = useState(
+  localStorage.getItem("shikshaAI_profileClass") || "Class 11"
+);
+  const [profileOpen, setProfileOpen] = useState(false);
+const [profileName, setProfileName] = useState(
+  localStorage.getItem("shikshaAI_profileName") || "Aarav Singh"
+);
 
   useEffect(() => {
     const savedResult = sessionStorage.getItem(
@@ -47,6 +54,16 @@ function Dashboard() {
       setLatestResult(JSON.parse(savedResult));
     }
   }, []);
+
+  const performanceScore = latestResult?.percentage || 0;
+const performanceAccuracy =
+  latestResult?.accuracy ?? performanceScore;
+
+const scoreY =
+  170 - (performanceScore / 100) * 140;
+
+const accuracyY =
+  170 - (performanceAccuracy / 100) * 140;
   return (
     <div className="dashboard-layout">
 
@@ -260,91 +277,177 @@ function Dashboard() {
 
 
       {/* ================= MAIN ================= */}
+      
+    {profileOpen && (
+  <div
+    className="profile-modal-overlay"
+    onClick={() => setProfileOpen(false)}
+  >
+    <div
+      className="profile-modal"
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div className="profile-modal-avatar">
+        {profileName.charAt(0).toUpperCase()}
+      </div>
 
+      <h2>{profileName}</h2>
+
+      <p>{profileClass}</p>
+
+      <button
+        className="profile-edit-button"
+        onClick={() => {
+          const newName = window.prompt(
+            "Enter your name:",
+            profileName
+          );
+
+          if (newName && newName.trim()) {
+            const updatedName = newName.trim();
+
+            setProfileName(updatedName);
+
+            localStorage.setItem(
+              "shikshaAI_profileName",
+              updatedName
+            );
+
+            setProfileOpen(false);
+          }
+        }}
+      >
+        Change Name
+      </button>
+
+      <button
+        className="profile-edit-button"
+        onClick={() => {
+          const newClass = window.prompt(
+            "Enter your class:",
+            profileClass
+          );
+
+          if (newClass && newClass.trim()) {
+            const updatedClass = newClass.trim();
+
+            setProfileClass(updatedClass);
+
+            localStorage.setItem(
+              "shikshaAI_profileClass",
+              updatedClass
+            );
+          }
+        }}
+      >
+        Change Class
+      </button>
+
+      <button
+        className="profile-close-button"
+        onClick={() => setProfileOpen(false)}
+      >
+        Close
+      </button>
+    </div>
+  </div>
+)}
       <main className="dashboard-main">
 
         {/* ================= TOPBAR ================= */}
 
         <header className="dashboard-topbar">
 
-          <div className="topbar-left">
+  <div className="topbar-left">
 
-            <div>
+    <div>
+      <h1>
+        Good Morning, Aarav! 👋
+      </h1>
 
-              <h1>
-                Good Morning, Aarav! 👋
-              </h1>
+      <p>
+        Ready to learn something amazing today?
+      </p>
+    </div>
 
-              <p>
-                Ready to learn something amazing today?
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div className="topbar-actions">
-
-            <div className="search-box">
-
-              <Search size={16} />
-
-              <input
-                type="text"
-                placeholder="Search anything..."
-              />
-
-            </div>
-
-
-            <button
-  className="language-button"
-  onClick={() =>
-    alert("Language options: English, Hindi, Hinglish")
-  }
->
-  <Globe size={16} />
-  English
-</button>
-
-            <button
-  className="notification-button"
-  onClick={() =>
-    alert(
-      "Notifications:\n\n• New lesson recommendation\n• Assessment completed\n• Keep learning your daily streak!"
-    )
-  }
->
-  <Bell size={18} />
-  <span>2</span>
-</button>
-
-
-            <div
-  className="profile-mini"
-  onClick={() => alert("Profile: Aarav Singh\nClass 11")}
-  style={{ cursor: "pointer" }}
->
-  <div className="profile-avatar">
-    A
   </div>
 
-  <div>
-    <strong>
-      Aarav Singh
-    </strong>
 
-    <small>
-      Class 11
-    </small>
+  <div className="topbar-actions">
+
+    <div className="search-box">
+
+      <Search size={16} />
+
+      <input
+        type="text"
+        placeholder="Search anything..."
+      />
+
+    </div>
+
+
+    <div className="language-selector">
+
+      <select
+        className="language-button"
+        defaultValue="English"
+        onChange={(e) => {
+          console.log(
+            "Selected language:",
+            e.target.value
+          );
+        }}
+      >
+        <option value="English">
+          English
+        </option>
+
+        <option value="Hindi">
+          Hindi
+        </option>
+
+        <option value="Hinglish">
+          Hinglish
+        </option>
+      </select>
+
+    </div>
+
+
+    <button
+      className="notification-button"
+      onClick={() =>
+        alert(
+          "Notifications:\n\n• New lesson recommendation\n• Assessment completed\n• Keep learning your daily streak!"
+        )
+      }
+    >
+      <Bell size={18} />
+      <span>2</span>
+    </button>
+
+
+    <div
+      className="profile-mini"
+      onClick={() => setProfileOpen(true)}
+      style={{ cursor: "pointer" }}
+    >
+
+      <div className="profile-avatar">
+        {profileName.charAt(0).toUpperCase()}
+      </div>
+
+      <div>
+        <strong>{profileName}</strong>
+        <small> class 11 </small>
+      </div>
+
+    </div>
+
   </div>
-</div>
-            </div>
 
-          
-
-        </header>
+</header>
 
 
         {/* ================= STATS ================= */}
@@ -756,122 +859,99 @@ function Dashboard() {
 
           {/* ================= PERFORMANCE ================= */}
 
-          <Link
-            to="/learning-report"
-            className="performance-card dashboard-white-card"
-          >
+<Link
+  to="/learning-report"
+  className="performance-card dashboard-white-card"
+>
+  <div className="card-heading">
+    <h2>Recent Performance</h2>
 
-            <div className="card-heading">
+    <span className="view-all">
+      View All
+    </span>
+  </div>
 
-              <h2>
-                Recent Performance
-              </h2>
+  <div className="chart-legend">
+    <span>
+      <i className="score-dot"></i>
+      Score
+    </span>
 
-              <span className="view-all">
-                View All
-              </span>
+    <span>
+      <i className="accuracy-dot"></i>
+      Accuracy
+    </span>
+  </div>
 
-            </div>
+  <div className="performance-chart">
 
+    <div className="chart-lines">
+      <span>100%</span>
+      <span>75%</span>
+      <span>50%</span>
+      <span>25%</span>
+      <span>0%</span>
+    </div>
 
-            <div className="chart-legend">
+    <div className="chart-area">
 
-              <span>
-                <i className="score-dot"></i>
-                Score
-              </span>
+      <svg
+        viewBox="0 0 500 190"
+        preserveAspectRatio="none"
+      >
+        <polyline
+          points={`0,170 500,${scoreY}`}
+          fill="none"
+          stroke="#6846f5"
+          strokeWidth="4"
+        />
 
-              <span>
-                <i className="accuracy-dot"></i>
-                Accuracy
-              </span>
+        <polyline
+          points={`0,170 500,${accuracyY}`}
+          fill="none"
+          stroke="#20b878"
+          strokeWidth="4"
+        />
 
-            </div>
+        <circle
+          cx="500"
+          cy={scoreY}
+          r="6"
+          fill="#6846f5"
+        />
 
+        <circle
+          cx="500"
+          cy={accuracyY}
+          r="6"
+          fill="#20b878"
+        />
+      </svg>
 
-            <div className="performance-chart">
+      <div className="chart-tooltip">
+        Latest Assessment
 
-              <div className="chart-lines">
+        <strong>
+          Score: {performanceScore}%
+        </strong>
 
-                <span>100%</span>
-                <span>75%</span>
-                <span>50%</span>
-                <span>25%</span>
-                <span>0%</span>
+        <strong>
+          Accuracy: {performanceAccuracy}%
+        </strong>
+      </div>
 
-              </div>
+    </div>
+  </div>
 
+  <div className="chart-dates">
+    <span>
+      {latestResult ? "Latest Assessment" : "No Assessment Yet"}
+    </span>
+  </div>
 
-              <div className="chart-area">
+</Link>
 
-                <svg
-                  viewBox="0 0 500 190"
-                  preserveAspectRatio="none"
-                >
-
-                  <polyline
-                    points="0,125 75,115 150,118 225,72 300,92 375,88 500,84"
-                    fill="none"
-                    stroke="#6846f5"
-                    strokeWidth="4"
-                  />
-
-                  <polyline
-                    points="0,145 75,145 150,130 225,105 300,120 375,110 500,98"
-                    fill="none"
-                    stroke="#20b878"
-                    strokeWidth="4"
-                  />
-
-                  <circle
-                    cx="225"
-                    cy="72"
-                    r="6"
-                    fill="#6846f5"
-                  />
-
-                  <circle
-                    cx="225"
-                    cy="105"
-                    r="6"
-                    fill="#20b878"
-                  />
-
-                </svg>
-
-
-                <div className="chart-tooltip">
-
-                  May 13
-
-                  <strong>
-                    Score: 85%
-                  </strong>
-
-                  <strong>
-                    Accuracy: 82%
-                  </strong>
-
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div className="chart-dates">
-
-              <span>May 10</span>
-              <span>May 11</span>
-              <span>May 12</span>
-              <span>May 13</span>
-              <span>May 14</span>
-              <span>May 15</span>
-              <span>May 16</span>
-
-            </div>
-
-          </Link>
+          
 
 
           {/* ================= UPCOMING GOALS ================= */}
