@@ -1396,75 +1396,7 @@ Instructions:
 
         {/* AI TEACHER EXPLANATION */}
 
-        <section className="teacher-panel">
-
-          <div className="avatar-container">
-
-            <div className="teacher-avatar">
-              🤖
-            </div>
-
-            <div className="speaking-indicator">
-              🔊 AI Teacher is speaking...
-            </div>
-
-          </div>
-
-          <div className="teacher-message">
-
-            <h2>
-              Let's learn together.
-            </h2>
-
-            {!aiExplanation ? (
-
-              <>
-
-                <p>
-                  Today we are going to
-                  understand{" "}
-                  <strong>
-                    {lesson.topic}
-                  </strong>.
-                  I'll explain the concept
-                  step by step using simple
-                  examples.
-                </p>
-
-                <button
-                  className="start-explanation-button"
-                  onClick={
-                    generateExplanation
-                  }
-                  disabled={
-                    isExplaining
-                  }
-                >
-
-                  {isExplaining
-                    ? "Preparing Lesson..."
-                    : "Start AI Explanation →"}
-
-                </button>
-
-              </>
-
-            ) : (
-
-              <div className="ai-explanation">
-
-                <ReactMarkdown>
-                  {aiExplanation}
-                </ReactMarkdown>
-
-              </div>
-
-            )}
-
-          </div>
-
-        </section>
-
+       
 
         {/* VISUAL EXPLANATION */}
 
