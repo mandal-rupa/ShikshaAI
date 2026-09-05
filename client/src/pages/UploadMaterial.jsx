@@ -5,15 +5,12 @@ import "./UploadMaterial.css";
 
 function UploadMaterial() {
   const navigate = useNavigate();
-
   const [file, setFile] = useState(null);
   const [topic, setTopic] = useState("");
   const [uploading, setUploading] = useState(false);
-
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
-
-    if (selectedFile) {
+      if (selectedFile) {
       setFile(selectedFile);
     }
   };
@@ -43,7 +40,7 @@ function UploadMaterial() {
       setUploading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/upload/upload",
+        "https://shikshaai-kjad.onrender.com/api/upload/upload",
         formData
       );
 

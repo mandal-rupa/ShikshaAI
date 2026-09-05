@@ -639,7 +639,7 @@ function TeachingRoom() {
       try {
         const response =
           await axios.post(
-            "http://localhost:5000/api/ai/ask",
+            "https://shikshaai-kjad.onrender.com/api/ai/ask",
             {
               question: `
 You are an adaptive AI Teacher.
@@ -844,7 +844,7 @@ Return exactly:
 
       const response =
         await axios.post(
-          "http://localhost:5000/api/ai/ask",
+          "https://shikshaai-kjad.onrender.com/api/ai/ask",
           {
             question: `
 Evaluate this student's answer.
@@ -984,7 +984,7 @@ Instructions:
       try {
         const response =
           await axios.post(
-            "http://localhost:5000/api/ai/ask",
+            "https://shikshaai-kjad.onrender.com/api/ai/ask",
             {
               question: `
 You are teaching the student using the current lesson.
@@ -1109,7 +1109,7 @@ Instructions:
     try {
       const response =
         await axios.post(
-          "http://localhost:5000/api/ai/ask",
+          "https://shikshaai-kjad.onrender.com/api/ai/ask",
           {
             question: `
 The student is currently learning this lesson.

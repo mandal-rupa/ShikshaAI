@@ -196,7 +196,7 @@ Result: ${
 
       const response =
         await axios.post(
-          "http://localhost:5000/api/ai/ask",
+          "https://shikshaai-kjad.onrender.com/api/ai/ask",
           {
             question: `
 You are ShikshaAI, a personal AI Teacher.
