@@ -545,21 +545,25 @@ function TeachingRoom() {
   // PLAY AI LESSON
   // =========================
 
-  const playLesson = () => {
-    if (!aiExplanation) {
-      alert(
-        "Please click 'Start AI Explanation' first."
-      );
+  const playLesson = async () => {
+  if (isSpeaking) {
+    stopLesson();
+    return;
+  }
 
+  let explanation = aiExplanation;
+
+  // Explanation nahi hai to automatically generate karo
+  if (!explanation) {
+    explanation = await generateExplanation();
+
+    if (!explanation) {
       return;
     }
+  }
 
-    if (isExplaining) {
-      return;
-    }
-
-    speakText(aiExplanation);
-  };
+  speakText(explanation);
+};
 
   // =========================
   // STOP LESSON
