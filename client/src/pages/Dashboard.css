@@ -1193,3 +1193,72 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ================= PROFILE MODAL ================= */
+
+.profile-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.profile-modal {
+  width: 360px;
+  max-width: calc(100% - 40px);
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+.profile-modal-avatar {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: #eee9ff;
+  color: #6846f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.profile-modal h2 {
+  margin: 0;
+  font-size: 22px;
+  color: #111827;
+}
+
+.profile-modal p {
+  margin: 6px 0 24px;
+  color: #64748b;
+}
+
+.profile-edit-button,
+.profile-close-button {
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.profile-edit-button {
+  background: #6846f5;
+  color: white;
+}
+
+.profile-close-button {
+  background: #eef2f7;
+  color: #334155;
+}
